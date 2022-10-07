@@ -1,4 +1,3 @@
-//Push
 class Node{
     constructor(val){
         this.val=val;
@@ -33,9 +32,51 @@ class singlyLinkedList{
         this.length++;
         return this
     }
+    traverse(){
+        var current=this.head;
+        while(current){
+            console.log(current.val);
+            current=current.next
+        }
+    }
+   // remove node from the last
+    pop(){
+        if(!this.head) return undefined;
+        var current=this.head;
+        var newTail=current;
+        while(current.next){
+            newTail=current;
+            current=current.next;
+        }
+        // console.log(newTail.val);
+        // console.log(current.val);
+        this.tail=newTail;
+        this.tail.next=null;
+        this.length--;
+        if(this.length===0){
+            this.head=null
+            this.tail=null
+        }
+        return current;
+
+
+    }
+       // remove node from the first
+    shift(){
+        if(!this.head) return undefined;
+         var currentHead=this.head;
+        this.head=currentHead.next;
+        this.length--;
+         if(this.length===0){
+            this.tail=null
+        }
+        return currentHead;
+        
+    }
 }
 
 var list = new singlyLinkedList()
 list.push("Hello");
 list.push("How");
 list.push("are")
+list.push("you")
