@@ -73,10 +73,66 @@ class singlyLinkedList{
         return currentHead;
         
     }
+
+    unshift(val){
+        var newNode=new Node(val)
+        if(!this.head){
+            this.head=newNode
+            this.tail=this.head
+        }
+        else{
+             newNode.next=this.head;
+             this.head=newNode;
+        }
+       
+        this.length++
+        return this
+    }
+    get(index){
+        if(index<0 || index>=this.length) return null
+        var counter=0;
+        var current=this.head
+        while(counter!==index){
+            current=current.next;
+            counter++
+        }
+        return current;
+    }
+
+    set(index, val){
+        var foundNode=this.get(index)
+        if(foundNode){
+            foundNode.val=val;
+            return true;
+        }
+        return false
+    }   
+    insert(index,val){
+        if(index < 0 || index > this.length) return false;
+        if(index===this.length) return !! this.push(val);
+        if(index===0) return !! this.unshift(val)
+        var newNode= new Node(val);
+        var pre=this.get(index-1)
+        var temp=pre.next;
+        pre.next=newNode;
+        newNode.next=temp;
+        this.length++
+        return true
+    }
+    remove(index){
+        if(index < 0 || index >= this.length) return undefined;
+        if(index===this.length-1) return !! this.pop();
+        if(index===0) return !! this.shift();
+        var preNode=this.get(index-1);
+        var deletedNode=preNode.next;
+        preNode.next=deletedNode.next;
+        this.length--;
+        return deletedNode;
+    }
 }
 
 var list = new singlyLinkedList()
-list.push("Hello");
-list.push("How");
-list.push("are")
-list.push("you")
+list.push(100);
+list.push(200);
+list.push(300)
+list.push(400)
