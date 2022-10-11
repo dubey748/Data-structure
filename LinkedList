@@ -129,6 +129,32 @@ class singlyLinkedList{
         this.length--;
         return deletedNode;
     }
+    reverse(){
+        var node=this.head;
+       this.head=this.tail;
+        this.tail=node;
+        var next;
+        var pre=null;
+       for(var i=0; i<this.length;i++){
+           next=node.next;
+           node.next=pre;
+           pre=node;
+           node=next;
+       }
+        return this;
+        
+    }
+
+    print(){
+        var arr=[];
+        var current=this.head;
+        while(current){
+            arr.push(current.val)
+            current=current.next;
+        }
+        console.log(arr)
+        
+    }
 }
 
 var list = new singlyLinkedList()
