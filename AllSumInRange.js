@@ -5,7 +5,7 @@ const SumInRange = (arr) => {
    }
    else{
     min=arr[0];
-    max=arr[1];
+    max=arr[1]; 
    }
    let sum=0;
    for(let i=min; i<=max;i++){
