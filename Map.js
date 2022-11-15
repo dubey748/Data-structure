@@ -42,5 +42,34 @@ for (const [key, value] of map) {
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//Updated 
+let map = new Map([
+  ["name", "anil"],
+  ["age", 23],
+  [21, 'mark'],
+  [true, 'boolean']
+
+  
+]);
+map.set('colour', 'red')
+//map.clear()  //to clear all data from map
+// can apply to loop for of and forEach
+
+//for(const i of map){
+//console.log(i)
+//}
+
+map.forEach((val, key)=>{
+    console.log(val)
+    console.log(key)
+})
+//console.warn(map);
+//console.log(map.size)
+//console.log(map.has(21)) // to find key 
+//console.log(map.get(21)) // to find value of perticuler key
+
+
+
 
 
